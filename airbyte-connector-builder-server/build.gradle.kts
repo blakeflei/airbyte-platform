@@ -181,11 +181,26 @@ sourceSets {
   }
 }
 
+// val copyPythonDeps =
+//   tasks.register<Copy>("copyPythonDependencies") {
+//     from("$projectDir/requirements.txt")
+//     into("${project.layout.buildDirectory.get()}/airbyte/docker/")
+//   }
+
+
 val copyPythonDeps =
   tasks.register<Copy>("copyPythonDependencies") {
     from("$projectDir/requirements.txt")
     into("${project.layout.buildDirectory.get()}/airbyte/docker/")
   }
+
+val copyPythonCdk =
+  tasks.register<Copy>("copyPythonCdk") {
+    from("../../airbyte-python-cdk")
+    into("${project.layout.buildDirectory.get()}/airbyte/docker/airbyte-python-cdk")
+  }
+
+
 //
 tasks.named<DockerBuildxTask>("dockerBuildImage") {
   // Set build args
@@ -194,9 +209,13 @@ tasks.named<DockerBuildxTask>("dockerBuildImage") {
   buildArgs.put("CDK_VERSION", cdkVersion)
 }
 
+// tasks.named("dockerCopyDistribution") {
+//   dependsOn(copyPythonDeps, generateOpenApiServer)
+// }
 tasks.named("dockerCopyDistribution") {
-  dependsOn(copyPythonDeps, generateOpenApiServer)
+  dependsOn(copyPythonDeps, generateOpenApiServer, copyPythonCdk)
 }
+
 
 tasks.withType<Jar>().configureEach {
   duplicatesStrategy = DuplicatesStrategy.EXCLUDE

@@ -67,4 +67,5 @@ data class ReplicationActivityInput(
   val supportsRefreshes: Boolean = false,
   val sourceIPCOptions: JsonNode? = null,
   val destinationIPCOptions: JsonNode? = null,
+  val logAllHttpCalls: Boolean? = false,
 )

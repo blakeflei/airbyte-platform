@@ -422,6 +422,10 @@ public class ConnectionsHandler {
     if (patch.getTags() != null) {
       sync.setTags(patch.getTags().stream().map(apiPojoConverters::toInternalTag).toList());
     }
+
+    if (patch.getLogAllHttpCalls() != null) {
+      sync.setLogAllHttpCalls(patch.getLogAllHttpCalls());
+    }
   }
 
   private static String getFrequencyStringFromScheduleType(final ScheduleType scheduleType, final ScheduleData scheduleData) {
@@ -594,7 +598,8 @@ public class ConnectionsHandler {
         .withNonBreakingChangesPreference(
             apiPojoConverters.toPersistenceNonBreakingChangesPreference(connectionCreate.getNonBreakingChangesPreference()))
         .withBackfillPreference(apiPojoConverters.toPersistenceBackfillPreference(connectionCreate.getBackfillPreference()))
-        .withTags(connectionCreate.getTags().stream().map(apiPojoConverters::toInternalTag).toList());
+        .withTags(connectionCreate.getTags().stream().map(apiPojoConverters::toInternalTag).toList())
+        .withLogAllHttpCalls(connectionCreate.getLogAllHttpCalls() != null ? connectionCreate.getLogAllHttpCalls() : false);
     if (connectionCreate.getResourceRequirements() != null) {
       standardSync.withResourceRequirements(apiPojoConverters.resourceRequirementsToInternal(connectionCreate.getResourceRequirements()));
     }

@@ -80,6 +80,7 @@ class RuntimeEnvVarFactory(
       EnvVar(EnvVarConstants.USE_FILE_TRANSFER, useFileTransferEnvVar.toString(), null),
       EnvVar(EnvVarConstants.JAVA_OPTS_ENV_VAR, javaOpts, null),
       EnvVar(EnvVarConstants.AIRBYTE_STAGING_DIRECTORY, stagingMountPath, null),
+      EnvVar("_AIRBYTE_LOG_ALL_HTTP_CALLS", (replicationInput.logAllHttpCalls ?: false).toString(), null),
     ) + secretPersistenceEnvVars
   }
 

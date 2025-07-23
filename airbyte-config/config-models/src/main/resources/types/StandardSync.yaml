@@ -152,3 +152,7 @@ properties:
     type: array
     items:
       $ref: Tag.yaml
+  logAllHttpCalls:
+    type: boolean
+    description: When enabled, logs ALL sensitive information from HTTP/HTTPS API calls including full URLs, headers, query parameters, request/response bodies, and authentication details. HTTPS calls will be logged in unencrypted form. This may include API keys, personal data, and other confidential information. Only enable in secure development environments for debugging purposes. Not recommended for production.
+    default: false

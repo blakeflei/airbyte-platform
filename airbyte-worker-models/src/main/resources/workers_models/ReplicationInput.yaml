@@ -117,3 +117,7 @@ properties:
     description: config containing information about source architecture
     type: object
     existingJavaType: com.fasterxml.jackson.databind.JsonNode
+  logAllHttpCalls:
+    description: Whether to enable comprehensive logging of all HTTP/HTTPS requests for debugging purposes. When enabled, logs ALL sensitive information including URLs, headers, query parameters, request/response bodies, and authentication details. Only use in secure development environments.
+    type: boolean
+    default: false

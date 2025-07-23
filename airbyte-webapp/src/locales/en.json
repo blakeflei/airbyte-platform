@@ -423,6 +423,10 @@
   "connectionForm.fileStream.tooltip.supported.note": "Note: this stream may be very large.",
   "connectionForm.fileStream.tooltip.unsupported": "{destinationName} does not support sending file.",
 
+  "connectionForm.logAllHttpCalls.label": "Log All Http/Https Calls to API",
+  "connectionForm.logAllHttpCalls.description": "Enable comprehensive logging of HTTP/HTTPS requests for debugging purposes.",
+  "connectionForm.logAllHttpCalls.warning": "This logs sensitive information from ALL HTTP and HTTPS API calls including full URLs, headers, query parameters, request/response bodies, and authentication details. HTTPS calls will be logged in unencrypted form. This may include API keys, personal data, and other confidential information. Only enable in secure development environments for debugging purposes. Not recommended for production.",
+
   "connectorForm.authenticate": "Authenticate your {connector} account",
   "connectorForm.signInWithGoogle": "Sign in with Google",
   "connectorForm.authenticate.succeeded": "Authentication succeeded!",

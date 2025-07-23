@@ -20,6 +20,7 @@ import { SimplifiedConnectionScheduleFormField } from "./SimplifiedConnectionSch
 import styles from "./SimplifiedConnectionSettingsCard.module.scss";
 import { SimplifiedDestinationNamespaceFormField } from "./SimplifiedDestinationNamespaceFormField";
 import { SimplifiedDestinationStreamPrefixNameFormField } from "./SimplifiedDestinationStreamPrefixNameFormField";
+import { SimplifiedHttpLoggingFormField } from "./SimplifiedHttpLoggingFormField";
 import { SimplifiedSchemaChangeNotificationFormField } from "./SimplifiedSchemaChangeNotificationFormField";
 
 interface SimplifiedConnectionsSettingsCardProps {
@@ -98,6 +99,7 @@ export const SimplifiedConnectionsSettingsCard: React.FC<SimplifiedConnectionsSe
             <SimplfiedSchemaChangesFormField isCreating={isCreating} disabled={isDeprecated} />
             <SimplifiedSchemaChangeNotificationFormField disabled={isDeprecated} />
             <SimplifiedBackfillFormField disabled={isDeprecated} />
+            <SimplifiedHttpLoggingFormField disabled={isDeprecated} />
           </FlexContainer>
         </Box>
 

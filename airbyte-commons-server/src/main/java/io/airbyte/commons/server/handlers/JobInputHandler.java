@@ -239,7 +239,8 @@ public class JobInputHandler {
           .withUseAsyncActivities(true)
           .withNetworkSecurityTokens(getNetworkSecurityTokens(config.getWorkspaceId()))
           .withIncludesFiles(shouldIncludeFiles || isDeprecatedFileTransfer)
-          .withOmitFileTransferEnvVar(shouldIncludeFiles);
+          .withOmitFileTransferEnvVar(shouldIncludeFiles)
+          .withLogAllHttpCalls(standardSync.getLogAllHttpCalls() != null ? standardSync.getLogAllHttpCalls() : false);
 
       saveAttemptSyncConfig(jobId, attempt, connectionId, attemptSyncConfig);
       return new JobInput(jobRunConfig, sourceLauncherConfig, destinationLauncherConfig, syncInput);

@@ -90,6 +90,7 @@ interface GenerateReplicationActivityInputActivity {
       supportsRefreshes = supportsRefreshes,
       sourceIPCOptions = sourceIPCOptions,
       destinationIPCOptions = destinationIPCOptions,
+      logAllHttpCalls = syncInput.logAllHttpCalls,
     )
   }
 }

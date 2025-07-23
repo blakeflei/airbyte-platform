@@ -41,4 +41,5 @@ class ReplicationInputMapper {
       .withSupportsRefreshes(replicationActivityInput.supportsRefreshes)
       .withSourceIPCOptions(replicationActivityInput.sourceIPCOptions)
       .withDestinationIPCOptions(replicationActivityInput.destinationIPCOptions)
+      .withLogAllHttpCalls(replicationActivityInput.logAllHttpCalls)
 }

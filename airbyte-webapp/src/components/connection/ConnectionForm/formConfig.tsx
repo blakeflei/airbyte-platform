@@ -52,6 +52,7 @@ export interface FormConnectionFormValues {
   notifySchemaChanges?: boolean;
   backfillPreference?: SchemaChangeBackfillPreference;
   tags?: Tag[];
+  logAllHttpCalls?: boolean;
 }
 
 /**
@@ -171,6 +172,7 @@ export const useInitialFormValues = (
           notificationSettings.sendOnConnectionUpdate.notificationType.length > 0),
       backfillPreference: connection.backfillPreference ?? SchemaChangeBackfillPreference.disabled,
       tags: connection.tags ?? [],
+      logAllHttpCalls: connection.logAllHttpCalls ?? false,
     };
 
     return initialValues;
@@ -188,6 +190,7 @@ export const useInitialFormValues = (
     connection.notifySchemaChanges,
     connection.backfillPreference,
     connection.tags,
+    connection.logAllHttpCalls,
     defaultNonBreakingChangesPreference,
     workspace.dataplaneGroupId,
     syncCatalog,
